@@ -26,7 +26,10 @@ async function start() {
 
   const io = new Server(server, {
     path: '/api/socketio',
-    cors: { origin: '*', methods: ['GET', 'POST'] },
+    cors: {
+      origin: process.env.NEXTAUTH_URL || '*',
+      methods: ['GET', 'POST'],
+    },
   });
 
   setupSocket(io);

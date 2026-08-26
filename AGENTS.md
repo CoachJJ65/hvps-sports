@@ -19,6 +19,10 @@ All LLM/AI features MUST use xAI Grok via `XAI_API_KEY` and `https://api.x.ai/v1
 - HTTP: `POST /api/ai/chat` with `{ "prompt": "..." }`.
 - Do not add OpenAI, Anthropic, Gemini, or other providers.
 
+## Coolify
+
+Production host is Coolify (Docker). See `COOLIFY.md`. Do not bake `.env` into the image. Persist SQLite at `/app/prisma/db`. AI still uses Grok via `XAI_API_KEY`.
+
 ## PWA
 
 - Manifest: `src/app/manifest.ts`

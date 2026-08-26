@@ -19,6 +19,10 @@ Open http://localhost:3000. On a phone, use Add to Home Screen to install the PW
 
 Seeded admin (change immediately): `admin@hvps.local` / `changeme-admin`
 
+## Coolify
+
+Production is Docker on Coolify. See [COOLIFY.md](./COOLIFY.md) for GitHub app setup, env vars (`XAI_API_KEY`, `NEXTAUTH_URL`, `DATABASE_URL`), websocket proxy, and the SQLite volume at `/app/prisma/db`.
+
 ## AI (Grok)
 
 All AI features use **xAI Grok** only (`XAI_API_KEY`, model `grok-4.6`). Get a key at [console.x.ai](https://console.x.ai). Keep it in `.env` — never in the browser.

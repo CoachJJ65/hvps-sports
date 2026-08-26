@@ -1,16 +1,16 @@
 # Graph Report - Hvps_Sports  (2026-08-26)
 
 ## Corpus Check
-- 58 files · ~16,196 words
+- 60 files · ~16,565 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 319 nodes · 335 edges · 43 communities (30 shown, 13 thin omitted)
-- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 22 edges (avg confidence: 0.85)
+- 331 nodes · 346 edges · 45 communities (30 shown, 15 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 22 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2a4cfd6b`
+- Built from commit: `b486d1a2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -30,6 +30,7 @@
 - [[_COMMUNITY_NextAuth Types|NextAuth Types]]
 - [[_COMMUNITY_ESLint Config|ESLint Config]]
 - [[_COMMUNITY_Custom Server|Custom Server]]
+- [[_COMMUNITY_docker-entrypoint.sh|docker-entrypoint.sh]]
 - [[_COMMUNITY_Prisma Seed|Prisma Seed]]
 - [[_COMMUNITY_Product Identity|Product Identity]]
 - [[_COMMUNITY_Icon Generator|Icon Generator]]
@@ -38,6 +39,7 @@
 - [[_COMMUNITY_PostCSS Config|PostCSS Config]]
 - [[_COMMUNITY_Prettier Config|Prettier Config]]
 - [[_COMMUNITY_Service Worker|Service Worker]]
+- [[_COMMUNITY_ai|ai.md]]
 - [[_COMMUNITY_graphify reference extra exports and benchmark|graphify reference: extra exports and benchmark]]
 - [[_COMMUNITY_graphify reference query, path, explain|graphify reference: query, path, explain]]
 - [[_COMMUNITY_HVPS Sports|HVPS Sports]]
@@ -58,11 +60,11 @@
 3. `What You Must Do When Invoked` - 12 edges
 4. `/graphify` - 11 edges
 5. `graphify reference: extra exports and benchmark` - 8 edges
-6. `grokModelName()` - 6 edges
+6. `Coolify deployment — HVPS Sports` - 7 edges
 7. `tailwind` - 6 edges
 8. `aliases` - 6 edges
 9. `Button()` - 6 edges
-10. `HVPS Sports Apple Touch Icon` - 6 edges
+10. `grokModelName()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `start()` --calls--> `setupSocket()`  [EXTRACTED]
@@ -87,11 +89,11 @@
 - **Two-Color Icon Palette** — public_icon_512_two_color_palette, public_icon_512_dark_green_field, public_icon_512_lime_circle_ring, public_icon_512_lime_plus_mark [INFERRED 0.85]
 - **HVPS Sports App Mark** — public_icon_pitch_green_square, public_icon_lime_circle, public_icon_lime_crosshair [EXTRACTED 1.00]
 
-## Communities (43 total, 13 thin omitted)
+## Communities (45 total, 15 thin omitted)
 
 ### Community 0 - "Runtime Dependencies"
-Cohesion: 0.06
-Nodes (32): AI — Grok only, dependencies, ai, @ai-sdk/xai, bcryptjs, class-variance-authority, clsx, date-fns (+24 more)
+Cohesion: 0.07
+Nodes (30): dependencies, @ai-sdk/xai, bcryptjs, class-variance-authority, clsx, date-fns, lucide-react, next (+22 more)
 
 ### Community 1 - "TypeScript Config"
 Cohesion: 0.09
@@ -150,12 +152,12 @@ Cohesion: 0.60
 Nodes (3): port, start(), setupSocket()
 
 ### Community 17 - "Product Identity"
-Cohesion: 0.40
-Nodes (4): AI (Grok), HVPS Sports, Scripts, Setup
+Cohesion: 0.14
+Nodes (12): 1. Push, 2. Create the application in Coolify, 3. Environment variables, 4. Persistent SQLite volume, 5. Domain / PWA, 6. Seeded admin, Coolify deployment — HVPS Sports, AI (Grok) (+4 more)
 
 ### Community 19 - "Sign-In Validation"
-Cohesion: 0.28
-Nodes (11): POST(), GET(), AI_PROVIDER, grokModel(), grokModelName(), isGrokConfigured(), requireGrokApiKey(), GrokChatInput (+3 more)
+Cohesion: 0.25
+Nodes (12): ai, POST(), GET(), AI_PROVIDER, grokModel(), grokModelName(), isGrokConfigured(), requireGrokApiKey() (+4 more)
 
 ### Community 32 - "graphify reference: extra exports and benchmark"
 Cohesion: 0.22
@@ -166,8 +168,8 @@ Cohesion: 0.33
 Nodes (5): For /graphify explain, For /graphify path, graphify reference: query, path, explain, Step 0 — Constrained query expansion (REQUIRED before traversal), Step 1 — Traversal
 
 ### Community 34 - "HVPS Sports"
-Cohesion: 0.33
-Nodes (5): AI (Grok only), Commands, graphify, HVPS Sports, PWA
+Cohesion: 0.29
+Nodes (6): AI (Grok only), Commands, Coolify, graphify, HVPS Sports, PWA
 
 ### Community 35 - "graphify reference: add a URL and watch a folder"
 Cohesion: 0.50
@@ -182,21 +184,21 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **178 isolated node(s):** `AI — Grok only`, `Commands`, `AI (Grok only)`, `PWA`, `graphify` (+173 more)
+- **187 isolated node(s):** `$schema`, `style`, `rsc`, `tsx`, `config` (+182 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `dependencies` connect `Runtime Dependencies` to `NPM Scripts`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
-- **Why does `devDependencies` connect `Dev Tooling` to `NPM Scripts`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
-- **What connects `AI — Grok only`, `Commands`, `AI (Grok only)` to the rest of the system?**
-  _179 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `dependencies` connect `Runtime Dependencies` to `Sign-In Validation`, `NPM Scripts`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+- **Why does `ai` connect `Sign-In Validation` to `Runtime Dependencies`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+- **What connects `$schema`, `style`, `rsc` to the rest of the system?**
+  _188 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Runtime Dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
 - **Should `TypeScript Config` be split into smaller, more focused modules?**
   _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
 - **Should `App Shell Providers` be split into smaller, more focused modules?**

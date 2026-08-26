@@ -35,8 +35,8 @@
     "semantic_hash": "38ae25ec68788103bfb33f5380c118d5"
   },
   "package.json": {
-    "mtime": 1787761880.934882,
-    "ast_hash": "4377ad7ba944656756b225f5b8261fed",
+    "mtime": 1787762851.1548476,
+    "ast_hash": "f88b1fb5bf56b8fc6a8c77991c4841de",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -65,9 +65,9 @@
     "semantic_hash": "f1206898fb3baf27dc3d6f4ec290fcd1"
   },
   "server.ts": {
-    "mtime": 1787760273.4845085,
-    "ast_hash": "46ddafef5c1d5fe06657c11c227ef82c",
-    "semantic_hash": "46ddafef5c1d5fe06657c11c227ef82c"
+    "mtime": 1787762882.8499305,
+    "ast_hash": "c7842d8cf86b3b0dd63023113de60acf",
+    "semantic_hash": ""
   },
   "src/app/api/auth/[...nextauth]/route.ts": {
     "mtime": 1787760273.482509,
@@ -255,8 +255,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1787761855.2913437,
-    "ast_hash": "3df5d1ad6f221f54bacee8a761681833",
+    "mtime": 1787762851.158888,
+    "ast_hash": "b99a8be118b0f2f06a48eb31e74b24da",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -270,8 +270,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1787761855.3009849,
-    "ast_hash": "345388e53b83451d9f80e10a792ad51a",
+    "mtime": 1787762851.158888,
+    "ast_hash": "d6afa3d2447eb4782f31fead4e63c6af",
     "semantic_hash": ""
   },
   "public/apple-touch-icon.png": {
@@ -307,6 +307,16 @@
   ".grok/rules/ai.md": {
     "mtime": 1787761855.2802823,
     "ast_hash": "34bb26d89715ac73c1598f7f446c13e8",
+    "semantic_hash": ""
+  },
+  "docker-entrypoint.sh": {
+    "mtime": 1787762907.0940025,
+    "ast_hash": "1c2365c254dedc8aeefa1de1bbc36c85",
+    "semantic_hash": ""
+  },
+  "COOLIFY.md": {
+    "mtime": 1787762851.158378,
+    "ast_hash": "4b1506edccdf61b95ef2bb53bd34ce07",
     "semantic_hash": ""
   }
 }
