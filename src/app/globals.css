@@ -91,3 +91,19 @@
     @apply bg-background text-foreground antialiased;
   }
 }
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  nav,
+  [aria-label='Primary'] {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

@@ -24,7 +24,8 @@ export const metadata: Metadata = {
     default: 'HVPS Sports',
     template: '%s | HVPS Sports',
   },
-  description: 'Mobile-first sports hub for HVPS — fixtures, teams, and results.',
+  description:
+    'Mobile-first sports hub for Hurlyvale Primary — fixtures, teams, notices, attendance, and match-day planners.',
   applicationName: 'HVPS Sports',
   appleWebApp: {
     capable: true,

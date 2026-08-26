@@ -3,6 +3,20 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import { db } from '@/lib/db';
 
+function sessionUser(user: {
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+}) {
+  return {
+    id: user.id,
+    email: user.email,
+    name: user.name,
+    role: user.role,
+  };
+}
+
 export const authOptions: NextAuthOptions = {
   session: { strategy: 'jwt' },
   pages: {
@@ -10,7 +24,8 @@ export const authOptions: NextAuthOptions = {
   },
   providers: [
     CredentialsProvider({
-      name: 'credentials',
+      id: 'credentials',
+      name: 'Email',
       credentials: {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
@@ -34,12 +49,39 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        return {
-          id: user.id,
-          email: user.email,
-          name: user.name,
-          role: user.role,
-        };
+        return sessionUser(user);
+      },
+    }),
+    CredentialsProvider({
+      id: 'pin',
+      name: 'PIN',
+      credentials: {
+        pin: { label: 'PIN', type: 'password' },
+        email: { label: 'Email', type: 'email' },
+      },
+      async authorize(credentials) {
+        const pin = credentials?.pin?.trim();
+        if (!pin) {
+          return null;
+        }
+
+        const email = credentials?.email?.trim().toLowerCase();
+        if (email) {
+          const user = await db.user.findUnique({ where: { email } });
+          if (!user?.pin_hash) return null;
+          const match = await bcrypt.compare(pin, user.pin_hash);
+          return match ? sessionUser(user) : null;
+        }
+
+        const users = await db.user.findMany({
+          where: { pin_hash: { not: null } },
+        });
+        for (const user of users) {
+          if (!user.pin_hash) continue;
+          const match = await bcrypt.compare(pin, user.pin_hash);
+          if (match) return sessionUser(user);
+        }
+        return null;
       },
     }),
   ],
