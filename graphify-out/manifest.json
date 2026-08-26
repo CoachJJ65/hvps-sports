@@ -35,9 +35,9 @@
     "semantic_hash": "38ae25ec68788103bfb33f5380c118d5"
   },
   "package.json": {
-    "mtime": 1787760360.116332,
-    "ast_hash": "0ea00425392e22c2099482ca3c00220a",
-    "semantic_hash": "0ea00425392e22c2099482ca3c00220a"
+    "mtime": 1787761880.934882,
+    "ast_hash": "4377ad7ba944656756b225f5b8261fed",
+    "semantic_hash": ""
   },
   "postcss.config.mjs": {
     "mtime": 1787759886.3800566,
@@ -75,9 +75,9 @@
     "semantic_hash": "879766cbe9d4dc8c233d3ca8888cf5cf"
   },
   "src/app/api/health/route.ts": {
-    "mtime": 1787760273.4835079,
-    "ast_hash": "c6a1a20a0296e43273fdc5df04d01f4d",
-    "semantic_hash": "c6a1a20a0296e43273fdc5df04d01f4d"
+    "mtime": 1787761855.2883449,
+    "ast_hash": "78991317743cdfbf1de5e321b13e9cab",
+    "semantic_hash": ""
   },
   "src/app/auth/signin/page.tsx": {
     "mtime": 1787760273.4835079,
@@ -180,9 +180,9 @@
     "semantic_hash": "8595c2f874aa1ff8c7cc28df2999f354"
   },
   "src/lib/validations.ts": {
-    "mtime": 1787760151.3666167,
-    "ast_hash": "0ad6d3941c2aac1f8b12d30ccb409dfc",
-    "semantic_hash": "0ad6d3941c2aac1f8b12d30ccb409dfc"
+    "mtime": 1787761855.5973027,
+    "ast_hash": "72c26c2970caccb0533a293a1d639902",
+    "semantic_hash": ""
   },
   "src/store/ui.ts": {
     "mtime": 1787760151.3676178,
@@ -250,29 +250,29 @@
     "semantic_hash": "c698309979460d0f02ba616417844399"
   },
   ".grok/rules/graphify.md": {
-    "mtime": 1787760988.210333,
-    "ast_hash": "316c8a4ee1b5eb458f581c5a08e52d78",
-    "semantic_hash": "316c8a4ee1b5eb458f581c5a08e52d78"
+    "mtime": 1787761616.324999,
+    "ast_hash": "141ad35f641d490fd559c102504a14f8",
+    "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1787760976.9452965,
-    "ast_hash": "81b3ffe5f0de984c89d22bb9c02d0a13",
-    "semantic_hash": "81b3ffe5f0de984c89d22bb9c02d0a13"
+    "mtime": 1787761855.2913437,
+    "ast_hash": "3df5d1ad6f221f54bacee8a761681833",
+    "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1787760975.5543785,
-    "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
-    "semantic_hash": "8a6643a420fdad6bfb583523bc6cef16"
+    "mtime": 1787761855.2948866,
+    "ast_hash": "1211d0d0eac73c01934982adcc55a40e",
+    "semantic_hash": ""
   },
   "GEMINI.md": {
-    "mtime": 1787760977.5233877,
-    "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
-    "semantic_hash": "8a6643a420fdad6bfb583523bc6cef16"
+    "mtime": 1787761893.8777466,
+    "ast_hash": "1211d0d0eac73c01934982adcc55a40e",
+    "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1787760315.2157514,
-    "ast_hash": "7579fa3795f7faec31122b30a9982a15",
-    "semantic_hash": "7579fa3795f7faec31122b30a9982a15"
+    "mtime": 1787761855.3009849,
+    "ast_hash": "345388e53b83451d9f80e10a792ad51a",
+    "semantic_hash": ""
   },
   "public/apple-touch-icon.png": {
     "mtime": 1787760396.296,
@@ -293,5 +293,20 @@
     "mtime": 1787760396.258412,
     "ast_hash": "acff50b5533f9b13cbbfb07eb4d7eab8",
     "semantic_hash": "acff50b5533f9b13cbbfb07eb4d7eab8"
+  },
+  "src/app/api/ai/chat/route.ts": {
+    "mtime": 1787761869.0768752,
+    "ast_hash": "99606dcef07dfae8e8fb1a206b671ae9",
+    "semantic_hash": ""
+  },
+  "src/lib/ai.ts": {
+    "mtime": 1787761855.4624696,
+    "ast_hash": "f92fa7f877b03d06d19295e55b237e47",
+    "semantic_hash": ""
+  },
+  ".grok/rules/ai.md": {
+    "mtime": 1787761855.2802823,
+    "ast_hash": "34bb26d89715ac73c1598f7f446c13e8",
+    "semantic_hash": ""
   }
 }
