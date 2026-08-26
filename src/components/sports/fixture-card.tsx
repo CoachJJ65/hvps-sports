@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Bus, ChevronDown, MapPin } from 'lucide-react';
+import Link from 'next/link';
+import { Bus, ChevronDown, MapPin, NotebookPen } from 'lucide-react';
 import { formatMatchDate, formatTime, playerName } from '@/lib/format';
+import { isCricketSport } from '@/lib/cricket';
 import { cn } from '@/lib/utils';
 import type { FixtureItem, SelectionItem } from '@/types/sports';
 
@@ -17,8 +19,12 @@ export function FixtureCard({
 }) {
   const [open, setOpen] = useState(false);
   const completed = fixture.status === 'COMPLETED';
+  const cricket = isCricketSport(fixture.team.sport.name);
   const hvpsScore = fixture.isAway ? fixture.awayScore : fixture.homeScore;
   const oppScore = fixture.isAway ? fixture.homeScore : fixture.awayScore;
+  const cricketLine = fixture.cricket?.hvps
+    ? `${fixture.cricket.hvps.runs}/${fixture.cricket.hvps.wickets} (${fixture.cricket.hvps.overs})`
+    : null;
 
   async function toggle() {
     const next = !open;
@@ -43,7 +49,11 @@ export function FixtureCard({
             {formatMatchDate(fixture.dateTime)}
           </p>
         </div>
-        {completed && hvpsScore != null && oppScore != null ? (
+        {cricket && cricketLine ? (
+          <p className="shrink-0 rounded-lg bg-secondary px-2.5 py-1 text-sm font-semibold tabular-nums">
+            {cricketLine}
+          </p>
+        ) : completed && hvpsScore != null && oppScore != null ? (
           <p className="shrink-0 rounded-lg bg-secondary px-2.5 py-1 text-sm font-semibold tabular-nums">
             {hvpsScore}–{oppScore}
           </p>
@@ -66,6 +76,16 @@ export function FixtureCard({
       ) : null}
       {fixture.notes ? (
         <p className="mt-2 text-sm text-muted-foreground">{fixture.notes}</p>
+      ) : null}
+
+      {cricket ? (
+        <Link
+          href={`/scorebook/${fixture.id}`}
+          className="mt-3 flex min-h-11 w-full items-center justify-center gap-1 rounded-md border border-border text-sm"
+        >
+          <NotebookPen className="size-4" aria-hidden />
+          Scorebook
+        </Link>
       ) : null}
 
       <button

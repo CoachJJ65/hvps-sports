@@ -30,6 +30,12 @@ export interface TeamItem {
   players: PlayerItem[];
 }
 
+export interface CricketScoreline {
+  runs: number;
+  wickets: number;
+  overs: string;
+}
+
 export interface FixtureItem {
   id: string;
   teamId: string;
@@ -43,6 +49,10 @@ export interface FixtureItem {
   awayScore: number | null;
   notes: string | null;
   team: TeamItem;
+  cricket?: {
+    hvps: CricketScoreline | null;
+    opposition: CricketScoreline | null;
+  } | null;
 }
 
 export interface SelectionItem {

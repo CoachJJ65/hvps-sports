@@ -85,3 +85,51 @@ export const formDocumentUpdateSchema = formDocumentSchema.partial();
 export const setPinSchema = z.object({
   pin: z.string().trim().min(4).max(8).nullable().optional(),
 });
+
+const cricketPlayerRef = z.object({
+  name: z.string().trim().min(1).max(80),
+  playerId: z.string().min(1).nullable().optional(),
+});
+
+export const startInningsSchema = z.object({
+  fixtureId: z.string().min(1),
+  battingSide: z.enum(['HVPS', 'OPPOSITION']),
+  oversLimit: z.number().int().min(1).max(50).optional(),
+  striker: cricketPlayerRef,
+  nonStriker: cricketPlayerRef,
+  bowler: cricketPlayerRef,
+});
+
+export const addCricketPlayerSchema = z.object({
+  name: z.string().trim().min(1).max(80),
+  playerId: z.string().min(1).nullable().optional(),
+  role: z.enum(['BATTER', 'BOWLER']),
+});
+
+export const cricketBallSchema = z.object({
+  runsOffBat: z.number().int().min(0).max(7).default(0),
+  extraType: z.enum(['WIDE', 'NO_BALL', 'BYE', 'LEG_BYE']).nullable().optional(),
+  extraRuns: z.number().int().min(0).max(7).optional(),
+  wicketType: z
+    .enum([
+      'BOWLED',
+      'CAUGHT',
+      'LBW',
+      'RUN_OUT',
+      'STUMPED',
+      'HIT_WICKET',
+      'RETIRED',
+    ])
+    .nullable()
+    .optional(),
+  dismissedId: z.string().min(1).nullable().optional(),
+  newBatter: cricketPlayerRef.optional(),
+  nextBowlerId: z.string().min(1).optional(),
+  fielderName: z.string().trim().max(80).optional(),
+});
+
+export const setStrikeSchema = z.object({
+  strikerId: z.string().min(1).optional(),
+  nonStrikerId: z.string().min(1).optional(),
+  bowlerId: z.string().min(1).optional(),
+});

@@ -1,4 +1,6 @@
 import type {
+  CricketDelivery,
+  CricketInnings,
   Fixture,
   FormDocument,
   Notice,
@@ -8,9 +10,35 @@ import type {
   Team,
   User,
 } from '@prisma/client';
+import {
+  cricketSummaryFromInnings,
+  serializeInnings,
+  type ScorebookInningsView,
+} from '@/lib/cricket';
 
 type TeamWithSport = Team & { sport: Sport; players?: Player[] };
-type FixtureWithTeam = Fixture & { team: TeamWithSport };
+type CricketInningsWithBalls = CricketInnings & {
+  batters?: {
+    id: string;
+    player_id: string | null;
+    name: string;
+    batting_order: number;
+    how_out: string;
+    bowler_name: string | null;
+    fielder_name: string | null;
+  }[];
+  bowlers?: {
+    id: string;
+    player_id: string | null;
+    name: string;
+    bowling_order: number;
+  }[];
+  deliveries: CricketDelivery[];
+};
+type FixtureWithTeam = Fixture & {
+  team: TeamWithSport;
+  cricket_innings?: CricketInningsWithBalls[];
+};
 type SelectionWithPlayer = Selection & { player: Player };
 type FormWithMeta = FormDocument & {
   sport?: Sport | null;
@@ -39,6 +67,33 @@ export function serializeTeam(team: TeamWithSport) {
 }
 
 export function serializeFixture(fixture: FixtureWithTeam) {
+  const cricketViews: ScorebookInningsView[] = (fixture.cricket_innings ?? [])
+    .filter((innings) => innings.batters && innings.bowlers)
+    .map((innings) =>
+      serializeInnings({
+        ...innings,
+        batters: innings.batters ?? [],
+        bowlers: innings.bowlers ?? [],
+        deliveries: innings.deliveries,
+      })
+    );
+
+  const cricket =
+    cricketViews.length > 0
+      ? cricketSummaryFromInnings(cricketViews)
+      : fixture.cricket_innings && fixture.cricket_innings.length > 0
+        ? cricketSummaryFromInnings(
+            fixture.cricket_innings.map((innings) =>
+              serializeInnings({
+                ...innings,
+                batters: innings.batters ?? [],
+                bowlers: innings.bowlers ?? [],
+                deliveries: innings.deliveries,
+              })
+            )
+          )
+        : null;
+
   return {
     id: fixture.id,
     teamId: fixture.team_id,
@@ -52,6 +107,7 @@ export function serializeFixture(fixture: FixtureWithTeam) {
     awayScore: fixture.away_score,
     notes: fixture.notes,
     team: serializeTeam(fixture.team),
+    cricket,
   };
 }
 
@@ -98,6 +154,13 @@ export const fixtureInclude = {
   team: {
     include: {
       sport: true,
+    },
+  },
+  cricket_innings: {
+    include: {
+      batters: true,
+      bowlers: true,
+      deliveries: { orderBy: { sequence: 'asc' as const } },
     },
   },
 } as const;

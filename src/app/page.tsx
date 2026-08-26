@@ -48,8 +48,8 @@ export default function HomePage() {
           HVPS Sports
         </h1>
         <p className="mt-2 max-w-prose text-sm text-muted-foreground">
-          Fixtures, team sheets, notices, and match-day planners for parents and
-          coaches.
+          Rugby, cricket, football, and athletics — fixtures, team sheets,
+          notices, and a live cricket scorebook for coaches.
         </p>
       </header>
 
@@ -108,7 +108,7 @@ export default function HomePage() {
           <span>
             <span className="block font-medium">Teams</span>
             <span className="block text-sm text-muted-foreground">
-              Rugby, Girls Touch, and Netball squads
+              Rugby, cricket, football, and athletics squads
             </span>
           </span>
         </Link>

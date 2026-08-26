@@ -1,6 +1,6 @@
 # HVPS Sports
 
-Mobile-first PWA for Hurlyvale Primary School (HVPS) sports: fixtures, team sheets, results, notices, practice attendance, and match-day planners.
+Mobile-first PWA for Hurlyvale Primary School (HVPS) sports. Starting codes: **Rugby**, **Cricket**, **Football**, and **Athletics**. Includes fixtures, team sheets, results, notices, practice attendance, match-day planners, and a cricket scorebook for each team playing a match.
 
 Ported from the Hurlyvale Sports ops app onto the same core stack as [jjcriccrm](https://github.com/CoachJJ65/jjcriccrm): Next.js 15, React 19, TypeScript, Tailwind CSS 4, shadcn/ui, Prisma (SQLite), NextAuth, TanStack Query, Zustand, Zod, and a custom Node server with Socket.IO.
 

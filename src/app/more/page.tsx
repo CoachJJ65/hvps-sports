@@ -25,6 +25,9 @@ export default function MorePage() {
         <MoreLink href="/results" label="Results" />
         <MoreLink href="/forms" label="Forms & planners" />
         {isStaff(role) ? <MoreLink href="/coach" label="Coach room" /> : null}
+        {isStaff(role) ? (
+          <MoreLink href="/coach/scorebook" label="Cricket scorebooks" />
+        ) : null}
         {isExec(role) ? <MoreLink href="/admin" label="Executive desk" /> : null}
         {session?.user ? (
           <li>

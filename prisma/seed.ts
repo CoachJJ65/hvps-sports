@@ -97,7 +97,15 @@ async function main() {
   });
 
   const rugby = await getOrCreateSport('Rugby');
-  const netball = await getOrCreateSport('Netball');
+  const cricket = await getOrCreateSport('Cricket');
+  const football = await getOrCreateSport('Football');
+  const athletics = await getOrCreateSport('Athletics');
+  const leftoverNetball = await prisma.sport.findUnique({
+    where: { name: 'Netball' },
+  });
+  if (leftoverNetball) {
+    await prisma.sport.delete({ where: { id: leftoverNetball.id } });
+  }
 
   const rugbyTeamNames = [
     'First Team',
@@ -116,48 +124,81 @@ async function main() {
     'Girls Touch 3',
     'Girls Touch 4',
   ];
+  const ageGroupTeams = ['First Team', 'U13A', 'U13B', 'U11A', 'U11B', 'U9'];
+  const athleticsTeams = ['U13', 'U11', 'U9', 'U7'];
 
   const teams: Record<string, { id: string }> = {};
   for (const name of rugbyTeamNames) {
     teams[name] = await getOrCreateTeam(name, rugby.id);
   }
-  teams['Netball U13A'] = await getOrCreateTeam('Netball U13A', netball.id);
-
-  const playerCount = await prisma.player.count();
-  if (playerCount === 0) {
-    const u13a = teams['U13A'].id;
-    const u13b = teams['U13B'].id;
-    const girls = teams['Girls Touch 1'].id;
-    const netballU13 = teams['Netball U13A'].id;
-
-    const players = [
-      { first_name: 'Sipho', last_name: 'Khumalo', house_name: 'Blue', team_id: u13a, parent_id: parent.id },
-      { first_name: 'Pieter', last_name: 'du Toit', house_name: 'Red', team_id: u13a },
-      { first_name: 'Kobus', last_name: 'van der Merwe', house_name: 'Yellow', team_id: u13a },
-      { first_name: 'Lunga', last_name: 'Ncube', house_name: 'Blue', team_id: u13a },
-      { first_name: 'Devon', last_name: 'Smith', house_name: 'Red', team_id: u13a },
-      { first_name: 'Thabo', last_name: 'Mokoena', house_name: 'Yellow', team_id: u13a },
-      { first_name: 'Dawie', last_name: 'Cronje', house_name: 'Blue', team_id: u13a },
-      { first_name: 'Jaden', last_name: 'Hendricks', house_name: 'Red', team_id: u13a },
-      { first_name: 'Reece', last_name: 'Williams', house_name: 'Yellow', team_id: u13a },
-      { first_name: 'Andile', last_name: 'Dlamini', house_name: 'Blue', team_id: u13a },
-      { first_name: 'Zian', last_name: 'Coetzee', house_name: 'Red', team_id: u13a },
-      { first_name: 'Keagan', last_name: 'Meyer', house_name: 'Yellow', team_id: u13a },
-      { first_name: 'Mandla', last_name: 'Zulu', house_name: 'Blue', team_id: u13a },
-      { first_name: 'Connor', last_name: 'Pretorius', house_name: 'Red', team_id: u13a },
-      { first_name: 'Francois', last_name: 'Botha', house_name: 'Yellow', team_id: u13a },
-      { first_name: 'Liam', last_name: "O'Connor", house_name: 'Blue', team_id: u13b },
-      { first_name: 'Bongani', last_name: 'Sithole', house_name: 'Red', team_id: u13b },
-      { first_name: 'Ruan', last_name: 'Nel', house_name: 'Yellow', team_id: u13b },
-      { first_name: 'Naledi', last_name: 'Maseko', house_name: 'Blue', team_id: girls },
-      { first_name: 'Aisha', last_name: 'Naidoo', house_name: 'Red', team_id: girls },
-      { first_name: 'Lerato', last_name: 'Phiri', house_name: 'Blue', team_id: netballU13 },
-      { first_name: 'Chantel', last_name: 'De Beer', house_name: 'Red', team_id: netballU13 },
-      { first_name: 'Amahle', last_name: 'Zondo', house_name: 'Yellow', team_id: netballU13 },
-    ];
-
-    await prisma.player.createMany({ data: players });
+  for (const name of ageGroupTeams) {
+    teams[`cricket:${name}`] = await getOrCreateTeam(name, cricket.id);
+    teams[`football:${name}`] = await getOrCreateTeam(name, football.id);
   }
+  for (const name of athleticsTeams) {
+    teams[`athletics:${name}`] = await getOrCreateTeam(name, athletics.id);
+  }
+
+  async function ensurePlayers(
+    teamId: string,
+    rows: { first_name: string; last_name: string; house_name?: string; parent_id?: string }[]
+  ) {
+    const count = await prisma.player.count({ where: { team_id: teamId } });
+    if (count > 0) return;
+    await prisma.player.createMany({
+      data: rows.map((row) => ({ ...row, team_id: teamId })),
+    });
+  }
+
+  await ensurePlayers(teams['U13A'].id, [
+    { first_name: 'Sipho', last_name: 'Khumalo', house_name: 'Blue', parent_id: parent.id },
+    { first_name: 'Pieter', last_name: 'du Toit', house_name: 'Red' },
+    { first_name: 'Kobus', last_name: 'van der Merwe', house_name: 'Yellow' },
+    { first_name: 'Lunga', last_name: 'Ncube', house_name: 'Blue' },
+    { first_name: 'Devon', last_name: 'Smith', house_name: 'Red' },
+    { first_name: 'Thabo', last_name: 'Mokoena', house_name: 'Yellow' },
+    { first_name: 'Dawie', last_name: 'Cronje', house_name: 'Blue' },
+    { first_name: 'Jaden', last_name: 'Hendricks', house_name: 'Red' },
+    { first_name: 'Reece', last_name: 'Williams', house_name: 'Yellow' },
+    { first_name: 'Andile', last_name: 'Dlamini', house_name: 'Blue' },
+    { first_name: 'Zian', last_name: 'Coetzee', house_name: 'Red' },
+    { first_name: 'Keagan', last_name: 'Meyer', house_name: 'Yellow' },
+    { first_name: 'Mandla', last_name: 'Zulu', house_name: 'Blue' },
+    { first_name: 'Connor', last_name: 'Pretorius', house_name: 'Red' },
+    { first_name: 'Francois', last_name: 'Botha', house_name: 'Yellow' },
+  ]);
+  await ensurePlayers(teams['U13B'].id, [
+    { first_name: 'Liam', last_name: "O'Connor", house_name: 'Blue' },
+    { first_name: 'Bongani', last_name: 'Sithole', house_name: 'Red' },
+    { first_name: 'Ruan', last_name: 'Nel', house_name: 'Yellow' },
+  ]);
+  await ensurePlayers(teams['Girls Touch 1'].id, [
+    { first_name: 'Naledi', last_name: 'Maseko', house_name: 'Blue' },
+    { first_name: 'Aisha', last_name: 'Naidoo', house_name: 'Red' },
+  ]);
+  await ensurePlayers(teams['cricket:U13A'].id, [
+    { first_name: 'Sipho', last_name: 'Khumalo', house_name: 'Blue', parent_id: parent.id },
+    { first_name: 'Pieter', last_name: 'du Toit', house_name: 'Red' },
+    { first_name: 'Lunga', last_name: 'Ncube', house_name: 'Blue' },
+    { first_name: 'Devon', last_name: 'Smith', house_name: 'Red' },
+    { first_name: 'Thabo', last_name: 'Mokoena', house_name: 'Yellow' },
+    { first_name: 'Jaden', last_name: 'Hendricks', house_name: 'Red' },
+    { first_name: 'Reece', last_name: 'Williams', house_name: 'Yellow' },
+    { first_name: 'Andile', last_name: 'Dlamini', house_name: 'Blue' },
+    { first_name: 'Zian', last_name: 'Coetzee', house_name: 'Red' },
+    { first_name: 'Keagan', last_name: 'Meyer', house_name: 'Yellow' },
+    { first_name: 'Mandla', last_name: 'Zulu', house_name: 'Blue' },
+  ]);
+  await ensurePlayers(teams['football:U13A'].id, [
+    { first_name: 'Dawie', last_name: 'Cronje', house_name: 'Blue' },
+    { first_name: 'Connor', last_name: 'Pretorius', house_name: 'Red' },
+    { first_name: 'Francois', last_name: 'Botha', house_name: 'Yellow' },
+  ]);
+  await ensurePlayers(teams['athletics:U13'].id, [
+    { first_name: 'Lerato', last_name: 'Phiri', house_name: 'Blue' },
+    { first_name: 'Chantel', last_name: 'De Beer', house_name: 'Red' },
+    { first_name: 'Amahle', last_name: 'Zondo', house_name: 'Yellow' },
+  ]);
 
   const fixtureCount = await prisma.fixture.count();
   if (fixtureCount === 0) {
@@ -269,6 +310,60 @@ async function main() {
         })),
       });
     }
+  }
+
+  async function ensureFixture(teamId: string, opponent: string, data: {
+    date_time: Date;
+    location: string;
+    is_away?: boolean;
+    bus_time?: Date;
+    status?: string;
+  }) {
+    const existing = await prisma.fixture.findFirst({
+      where: { team_id: teamId, opponent },
+    });
+    if (existing) return existing;
+    return prisma.fixture.create({
+      data: {
+        team_id: teamId,
+        opponent,
+        date_time: data.date_time,
+        location: data.location,
+        is_away: data.is_away ?? false,
+        bus_time: data.bus_time,
+        status: data.status ?? 'SCHEDULED',
+      },
+    });
+  }
+
+  {
+    const saturday = new Date();
+    const daysUntilSat = (6 - saturday.getDay() + 7) % 7 || 7;
+    saturday.setDate(saturday.getDate() + daysUntilSat);
+    saturday.setHours(9, 30, 0, 0);
+    const footballTime = new Date(saturday);
+    footballTime.setHours(11, 0, 0, 0);
+    const athleticsTime = new Date(saturday);
+    athleticsTime.setHours(8, 0, 0, 0);
+
+    await ensureFixture(teams['cricket:U13A'].id, "St John's College Prep", {
+      date_time: saturday,
+      location: 'HVPS cricket oval',
+    });
+    await ensureFixture(teams['cricket:U11A'].id, 'St Stithians Primary', {
+      date_time: saturday,
+      location: 'St Stithians oval',
+      is_away: true,
+    });
+    await ensureFixture(teams['football:U13A'].id, 'Bedfordview Primary', {
+      date_time: footballTime,
+      location: 'HVPS Field B',
+    });
+    await ensureFixture(teams['athletics:U13'].id, 'District athletics', {
+      date_time: athleticsTime,
+      location: 'Germiston Stadium',
+      is_away: true,
+    });
   }
 
   if ((await prisma.notice.count()) === 0) {

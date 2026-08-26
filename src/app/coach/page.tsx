@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
@@ -15,6 +16,7 @@ import {
 import { useCachedJson } from '@/lib/use-cached-json';
 import { playerName } from '@/lib/format';
 import { cn } from '@/lib/utils';
+import { isCricketSport } from '@/lib/cricket';
 import type {
   AttendanceMark,
   FixtureItem,
@@ -87,6 +89,15 @@ export default function CoachPage() {
         {!online ? ' · offline — registers will queue' : ''}
         {queued > 0 ? ` · ${queued} queued` : ''}
       </p>
+
+      {fixtures.some((fixture) => isCricketSport(fixture.team.sport.name)) ? (
+        <Link
+          href="/coach/scorebook"
+          className="mt-4 flex min-h-11 items-center justify-center rounded-xl border border-primary/40 bg-card text-sm font-medium"
+        >
+          Cricket scorebooks
+        </Link>
+      ) : null}
 
       <div className="mt-4 grid grid-cols-4 gap-1">
         {(['ATTENDANCE', 'RESULTS', 'NOTICES', 'FORMS'] as const).map((value) => (
@@ -313,11 +324,18 @@ function ResultsPanel({
         >
           {openFixtures.map((item) => (
             <option key={item.id} value={item.id}>
-              {item.team.name} vs {item.opponent}
+              {item.team.sport.name} · {item.team.name} vs {item.opponent}
             </option>
           ))}
         </select>
       </label>
+      {fixture && isCricketSport(fixture.team.sport.name) ? (
+        <Button asChild className="w-full">
+          <Link href={`/coach/scorebook/${fixture.id}`}>
+            Open cricket scorebook
+          </Link>
+        </Button>
+      ) : null}
       <div className="grid grid-cols-2 gap-3">
         <label className="block text-sm font-medium">
           Home

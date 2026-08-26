@@ -72,19 +72,20 @@ model Player {
 }
 
 model Fixture {
-  id         String      @id @default(cuid())
-  team_id    String
-  team       Team        @relation(fields: [team_id], references: [id], onDelete: Cascade)
-  opponent   String
-  date_time  DateTime
-  location   String
-  is_away    Boolean     @default(false)
-  bus_time   DateTime?
-  status     String      @default("SCHEDULED")
-  home_score Int?
-  away_score Int?
-  notes      String?
-  selections Selection[]
+  id              String           @id @default(cuid())
+  team_id         String
+  team            Team             @relation(fields: [team_id], references: [id], onDelete: Cascade)
+  opponent        String
+  date_time       DateTime
+  location        String
+  is_away         Boolean          @default(false)
+  bus_time        DateTime?
+  status          String           @default("SCHEDULED")
+  home_score      Int?
+  away_score      Int?
+  notes           String?
+  selections      Selection[]
+  cricket_innings CricketInnings[]
 
   @@index([date_time])
   @@index([status])
@@ -125,6 +126,74 @@ model Notice {
   updated_at DateTime @updatedAt
 
   @@map("notices")
+}
+
+model CricketInnings {
+  id                 String             @id @default(cuid())
+  fixture_id         String
+  fixture            Fixture            @relation(fields: [fixture_id], references: [id], onDelete: Cascade)
+  batting_side       String
+  innings_number     Int                @default(1)
+  overs_limit        Int                @default(20)
+  striker_id         String?
+  non_striker_id     String?
+  current_bowler_id  String?
+  closed             Boolean            @default(false)
+  created_at         DateTime           @default(now())
+  updated_at         DateTime           @updatedAt
+  batters            CricketBatter[]
+  bowlers            CricketBowler[]
+  deliveries         CricketDelivery[]
+
+  @@unique([fixture_id, batting_side, innings_number])
+  @@map("cricket_innings")
+}
+
+model CricketBatter {
+  id            String         @id @default(cuid())
+  innings_id    String
+  innings       CricketInnings @relation(fields: [innings_id], references: [id], onDelete: Cascade)
+  player_id     String?
+  name          String
+  batting_order Int
+  how_out       String         @default("NOT_OUT")
+  bowler_name   String?
+  fielder_name  String?
+
+  @@map("cricket_batters")
+}
+
+model CricketBowler {
+  id             String         @id @default(cuid())
+  innings_id     String
+  innings        CricketInnings @relation(fields: [innings_id], references: [id], onDelete: Cascade)
+  player_id      String?
+  name           String
+  bowling_order  Int
+
+  @@map("cricket_bowlers")
+}
+
+model CricketDelivery {
+  id             String         @id @default(cuid())
+  innings_id     String
+  innings        CricketInnings @relation(fields: [innings_id], references: [id], onDelete: Cascade)
+  sequence       Int
+  over_number    Int
+  ball_in_over   Int
+  bowler_id      String
+  striker_id     String
+  non_striker_id String
+  runs_off_bat   Int            @default(0)
+  extra_type     String?
+  extra_runs     Int            @default(0)
+  is_legal       Boolean        @default(true)
+  wicket_type    String?
+  dismissed_id   String?
+  created_at     DateTime       @default(now())
+
+  @@index([innings_id, sequence])
+  @@map("cricket_deliveries")
 }
 
 model FormDocument {
