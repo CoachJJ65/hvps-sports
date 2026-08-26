@@ -2,6 +2,12 @@
 
 Coolify pulls from GitHub (`CoachJJ65/hvps-sports`) and builds the `Dockerfile`. The local `.env` is **not** copied into the container.
 
+**Live app (Hurlyvale / production)**
+- URL: https://hvps-sports.cricncode.top
+- Auto-deploy: on (push to `main` via GitHub App)
+- UUID: `y3rhr1gpbswc3f3wlptrdzgh`
+- Volume: `/app/prisma/db`
+
 ## 1. Push
 
 ```bash
