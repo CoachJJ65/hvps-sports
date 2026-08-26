@@ -11,6 +11,14 @@ Mobile-first PWA for HVPS sports. Stack matches `jjcriccrm`: Next.js 15, React 1
 
 Do not run `prisma migrate reset` or delete existing `.db` files if they contain real data.
 
+## AI (Grok only)
+
+All LLM/AI features MUST use xAI Grok via `XAI_API_KEY` and `https://api.x.ai/v1`. Default model is `grok-4.6` (`XAI_MODEL` to override).
+
+- Server-only: import from `src/lib/ai.ts`. Never put the key in client code.
+- HTTP: `POST /api/ai/chat` with `{ "prompt": "..." }`.
+- Do not add OpenAI, Anthropic, Gemini, or other providers.
+
 ## PWA
 
 - Manifest: `src/app/manifest.ts`

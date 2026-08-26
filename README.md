@@ -19,6 +19,12 @@ Open http://localhost:3000. On a phone, use Add to Home Screen to install the PW
 
 Seeded admin (change immediately): `admin@hvps.local` / `changeme-admin`
 
+## AI (Grok)
+
+All AI features use **xAI Grok** only (`XAI_API_KEY`, model `grok-4.6`). Get a key at [console.x.ai](https://console.x.ai). Keep it in `.env` — never in the browser.
+
+`POST /api/ai/chat` with `{ "prompt": "..." }` is the server entry point.
+
 ## Scripts
 
 | Command | Purpose |

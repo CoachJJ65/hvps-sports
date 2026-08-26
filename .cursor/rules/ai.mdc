@@ -1,0 +1,6 @@
+---
+description: Grok is the only AI provider
+alwaysApply: true
+---
+
+All LLM/AI features MUST use xAI Grok (`XAI_API_KEY`, `https://api.x.ai/v1`, default model `grok-4.6`). Use `src/lib/ai.ts` on the server. Never add OpenAI, Anthropic, Gemini, or other providers. Never call an LLM from the browser.
