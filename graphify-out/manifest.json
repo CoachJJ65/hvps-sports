@@ -50,9 +50,9 @@
     "semantic_hash": "6938e1e7970557a843cbb4fd396fd999"
   },
   "prisma/seed.ts": {
-    "mtime": 1787760273.4845085,
-    "ast_hash": "45081953fe363cfae89f92be9c1f2606",
-    "semantic_hash": "45081953fe363cfae89f92be9c1f2606"
+    "mtime": 1787768774.676065,
+    "ast_hash": "ed0ac8b28fa2297cd03e94581030461a",
+    "semantic_hash": ""
   },
   "public/sw.js": {
     "mtime": 1787760273.4845085,
@@ -80,19 +80,19 @@
     "semantic_hash": ""
   },
   "src/app/auth/signin/page.tsx": {
-    "mtime": 1787760273.4835079,
-    "ast_hash": "0509a626b83a19e6fa59b500bca26f4c",
-    "semantic_hash": "0509a626b83a19e6fa59b500bca26f4c"
+    "mtime": 1787765352.6751995,
+    "ast_hash": "b67da80edc3fb9d9536fe6711d919343",
+    "semantic_hash": ""
   },
   "src/app/fixtures/page.tsx": {
-    "mtime": 1787760233.0845976,
-    "ast_hash": "1e430cde34af3805ea949d9e69546fc0",
-    "semantic_hash": "1e430cde34af3805ea949d9e69546fc0"
+    "mtime": 1787765216.477542,
+    "ast_hash": "19e7edd73b4d96d296c84597c4421a5b",
+    "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1787760232.993982,
-    "ast_hash": "a98583747b7e61cae82859f8de983348",
-    "semantic_hash": "a98583747b7e61cae82859f8de983348"
+    "mtime": 1787765373.5938852,
+    "ast_hash": "a186a0881301c1ca93c25c3f7eb31c9d",
+    "semantic_hash": ""
   },
   "src/app/manifest.ts": {
     "mtime": 1787760232.980905,
@@ -100,9 +100,9 @@
     "semantic_hash": "dc7732f0e53b7ceebade4a4be4056426"
   },
   "src/app/more/page.tsx": {
-    "mtime": 1787760233.0884993,
-    "ast_hash": "37015cc41a0575c5eabb0dd1712b1b6a",
-    "semantic_hash": "37015cc41a0575c5eabb0dd1712b1b6a"
+    "mtime": 1787768182.8755465,
+    "ast_hash": "9750e4ce0c348b1da806390b3f0afdc6",
+    "semantic_hash": ""
   },
   "src/app/offline/page.tsx": {
     "mtime": 1787760232.9829054,
@@ -110,19 +110,19 @@
     "semantic_hash": "9e4acd3ad36e436935cac46d713cb383"
   },
   "src/app/page.tsx": {
-    "mtime": 1787760233.2147267,
-    "ast_hash": "2300b2262c03a6a702b431b294bd7577",
-    "semantic_hash": "2300b2262c03a6a702b431b294bd7577"
+    "mtime": 1787768183.2536216,
+    "ast_hash": "f25bbfe10603ff1c498b608147509564",
+    "semantic_hash": ""
   },
   "src/app/results/page.tsx": {
-    "mtime": 1787760233.0864825,
-    "ast_hash": "58e0a7b99ceada062df3032b419047d6",
-    "semantic_hash": "58e0a7b99ceada062df3032b419047d6"
+    "mtime": 1787765216.477542,
+    "ast_hash": "c1ae4e2bb0cbf68b25012e06a10b60c0",
+    "semantic_hash": ""
   },
   "src/app/teams/page.tsx": {
-    "mtime": 1787760232.9969883,
-    "ast_hash": "45eab0aefb0e30c55847542da485305f",
-    "semantic_hash": "45eab0aefb0e30c55847542da485305f"
+    "mtime": 1787765216.477542,
+    "ast_hash": "3d663311a6c2ac0455099d28d700fab4",
+    "semantic_hash": ""
   },
   "src/components/layout/bottom-nav.tsx": {
     "mtime": 1787760186.307952,
@@ -160,9 +160,9 @@
     "semantic_hash": "923fb02d5edbb305426d643cd924cbd5"
   },
   "src/lib/auth.ts": {
-    "mtime": 1787760151.3701584,
-    "ast_hash": "d0bbf9b88b378fa25997e0abb5d09882",
-    "semantic_hash": "d0bbf9b88b378fa25997e0abb5d09882"
+    "mtime": 1787765020.1155424,
+    "ast_hash": "0f2ded301b06fa32ae9a900c2856752e",
+    "semantic_hash": ""
   },
   "src/lib/db.ts": {
     "mtime": 1787760151.3656137,
@@ -180,8 +180,8 @@
     "semantic_hash": "8595c2f874aa1ff8c7cc28df2999f354"
   },
   "src/lib/validations.ts": {
-    "mtime": 1787761855.5973027,
-    "ast_hash": "72c26c2970caccb0533a293a1d639902",
+    "mtime": 1787767856.514089,
+    "ast_hash": "04ea638b097608670c8eabb0bb3b5b1f",
     "semantic_hash": ""
   },
   "src/store/ui.ts": {
@@ -270,8 +270,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1787762851.158888,
-    "ast_hash": "d6afa3d2447eb4782f31fead4e63c6af",
+    "mtime": 1787768280.0355766,
+    "ast_hash": "6c6e96b9f2516b8d70e07b8e0626a35a",
     "semantic_hash": ""
   },
   "public/apple-touch-icon.png": {
@@ -315,8 +315,248 @@
     "semantic_hash": ""
   },
   "COOLIFY.md": {
-    "mtime": 1787762851.158378,
-    "ast_hash": "4b1506edccdf61b95ef2bb53bd34ce07",
+    "mtime": 1787764154.1689746,
+    "ast_hash": "954f5ab56a2bd118050b17166dcd40b1",
+    "semantic_hash": ""
+  },
+  "src/app/admin/page.tsx": {
+    "mtime": 1787765352.6355696,
+    "ast_hash": "6dd537dcd6579b2078db9d2a8de395e0",
+    "semantic_hash": ""
+  },
+  "src/app/api/admin/forms/[id]/route.ts": {
+    "mtime": 1787765097.9743829,
+    "ast_hash": "aab0b2f7851de8042b96c5d355e8b232",
+    "semantic_hash": ""
+  },
+  "src/app/api/admin/forms/route.ts": {
+    "mtime": 1787765097.9693134,
+    "ast_hash": "fa757f681cff0b81b25dddeb05ffa9c1",
+    "semantic_hash": ""
+  },
+  "src/app/api/admin/users/[id]/route.ts": {
+    "mtime": 1787765097.9718587,
+    "ast_hash": "bfc0f4bba8770ba8cea202a559032f4f",
+    "semantic_hash": ""
+  },
+  "src/app/api/admin/users/route.ts": {
+    "mtime": 1787765097.9718587,
+    "ast_hash": "a05f77b6fd8f7167acd117f408bf5fce",
+    "semantic_hash": ""
+  },
+  "src/app/api/auth/me/route.ts": {
+    "mtime": 1787765054.9967055,
+    "ast_hash": "d3c68049e486fcc3e73e204f2a55919a",
+    "semantic_hash": ""
+  },
+  "src/app/api/auth/register/route.ts": {
+    "mtime": 1787765054.9743252,
+    "ast_hash": "0cf895082f266bf6feab91e758a6dfd0",
+    "semantic_hash": ""
+  },
+  "src/app/api/auth/set-pin/route.ts": {
+    "mtime": 1787765054.9728003,
+    "ast_hash": "9c731f18c38bb1979d2fce7f216f30f2",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/attendance/route.ts": {
+    "mtime": 1787765097.9693134,
+    "ast_hash": "80161dff1f9772b7ecabd03e111254a7",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/fixtures/[id]/route.ts": {
+    "mtime": 1787765097.970836,
+    "ast_hash": "693548295bfd8d5bac4a5a48db7976b0",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/notices/[id]/route.ts": {
+    "mtime": 1787765097.9683151,
+    "ast_hash": "a8e1f6668f37de82b7cdb7c46984b154",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/notices/route.ts": {
+    "mtime": 1787765097.977905,
+    "ast_hash": "a141f092842d48a2e8cb8f6b93de900e",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/selections/route.ts": {
+    "mtime": 1787765097.9769094,
+    "ast_hash": "07117f09d21d3729d4c1361eecada7ef",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/teams/[teamId]/players/route.ts": {
+    "mtime": 1787765097.975382,
+    "ast_hash": "391564fc2fa90b2cdfec7fcbc35e8913",
+    "semantic_hash": ""
+  },
+  "src/app/api/public/fixtures/route.ts": {
+    "mtime": 1787765054.9728003,
+    "ast_hash": "87a0c6ba180b01e22c3e4856762ec236",
+    "semantic_hash": ""
+  },
+  "src/app/api/public/forms/[id]/route.ts": {
+    "mtime": 1787765054.9849074,
+    "ast_hash": "4f0e403a9db036179d37a3460c56453a",
+    "semantic_hash": ""
+  },
+  "src/app/api/public/forms/route.ts": {
+    "mtime": 1787765054.9911838,
+    "ast_hash": "4c64d898f425b5ebc0ff8a307277a722",
+    "semantic_hash": ""
+  },
+  "src/app/api/public/notices/route.ts": {
+    "mtime": 1787765054.9828918,
+    "ast_hash": "6c7d458eb1740811f7744f9948356d56",
+    "semantic_hash": ""
+  },
+  "src/app/api/public/selections/[fixtureId]/route.ts": {
+    "mtime": 1787765054.997712,
+    "ast_hash": "e1313d9753a478455543816ad6dd59c9",
+    "semantic_hash": ""
+  },
+  "src/app/api/public/teams/route.ts": {
+    "mtime": 1787765054.9957087,
+    "ast_hash": "75b57e41e43e1a9cd9d8705ab2df4e45",
+    "semantic_hash": ""
+  },
+  "src/app/auth/register/page.tsx": {
+    "mtime": 1787765352.6492105,
+    "ast_hash": "71bb37890242581efd0ffb1072138827",
+    "semantic_hash": ""
+  },
+  "src/app/coach/page.tsx": {
+    "mtime": 1787768225.8474216,
+    "ast_hash": "1f79c9448f590f8913e75367bc25f723",
+    "semantic_hash": ""
+  },
+  "src/app/forms/page.tsx": {
+    "mtime": 1787765352.6355696,
+    "ast_hash": "1b8529382a75dcbaaa5459e693e1f9b3",
+    "semantic_hash": ""
+  },
+  "src/components/sports/fixture-card.tsx": {
+    "mtime": 1787768183.9300523,
+    "ast_hash": "edfaec5be71e45fe9f9b801d5d56c929",
+    "semantic_hash": ""
+  },
+  "src/components/sports/form-viewer.tsx": {
+    "mtime": 1787765154.953506,
+    "ast_hash": "546671b603a45197bda5bc6790957911",
+    "semantic_hash": ""
+  },
+  "src/components/sports/notice-card.tsx": {
+    "mtime": 1787765154.9550164,
+    "ast_hash": "613e29e4a734da4ec0a5e18f9f2f264d",
+    "semantic_hash": ""
+  },
+  "src/lib/format.ts": {
+    "mtime": 1787764952.5291235,
+    "ast_hash": "992ba716967c5ea2658bdfd36854e356",
+    "semantic_hash": ""
+  },
+  "src/lib/offline.ts": {
+    "mtime": 1787764952.5321536,
+    "ast_hash": "affb49662af7ee7fee5c33fd00224e7a",
+    "semantic_hash": ""
+  },
+  "src/lib/role-names.ts": {
+    "mtime": 1787765232.2251236,
+    "ast_hash": "1682d5aafc9d84b07fd95a93fdb34dd9",
+    "semantic_hash": ""
+  },
+  "src/lib/roles.ts": {
+    "mtime": 1787765386.250434,
+    "ast_hash": "a9bbaef3128b61e0013688d5b1c7e298",
+    "semantic_hash": ""
+  },
+  "src/lib/sports.ts": {
+    "mtime": 1787767899.5684435,
+    "ast_hash": "1853815664c88325d1cbd4d26bd079b4",
+    "semantic_hash": ""
+  },
+  "src/lib/use-cached-json.ts": {
+    "mtime": 1787765216.47348,
+    "ast_hash": "edc87a67e962fcd28e4e1e7e75f3cc16",
+    "semantic_hash": ""
+  },
+  "src/types/sports.ts": {
+    "mtime": 1787768023.720956,
+    "ast_hash": "bef2cf9ef9131e1e4aa60fc4a47ae00d",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/scorebook/[inningsId]/ball/route.ts": {
+    "mtime": 1787768023.716863,
+    "ast_hash": "c56ec8c8902128cd5a0764f76ea19e57",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/scorebook/[inningsId]/close/route.ts": {
+    "mtime": 1787767988.3306751,
+    "ast_hash": "6f143227dcc3cf70f093d5621da21da2",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/scorebook/[inningsId]/player/route.ts": {
+    "mtime": 1787767988.2179022,
+    "ast_hash": "dc761a841754074862b3c0cb8b22f00a",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/scorebook/[inningsId]/strike/route.ts": {
+    "mtime": 1787767988.33683,
+    "ast_hash": "0779297c69cdc3b661c0178d339dc0dc",
+    "semantic_hash": ""
+  },
+  "src/app/api/coach/scorebook/route.ts": {
+    "mtime": 1787767988.2133377,
+    "ast_hash": "0772f30a56350b246b69d94d707dc40d",
+    "semantic_hash": ""
+  },
+  "src/app/api/public/scorebook/[fixtureId]/route.ts": {
+    "mtime": 1787767988.2159047,
+    "ast_hash": "b0fd56a8f15d8eab595e5425c83fe461",
+    "semantic_hash": ""
+  },
+  "src/app/coach/scorebook/[fixtureId]/page.tsx": {
+    "mtime": 1787768182.4587016,
+    "ast_hash": "84e8c3dd7e82eb0fd2696bdff37bd354",
+    "semantic_hash": ""
+  },
+  "src/app/coach/scorebook/page.tsx": {
+    "mtime": 1787768143.4545476,
+    "ast_hash": "b2790559037295aecbdb11eaa0b44baa",
+    "semantic_hash": ""
+  },
+  "src/app/scorebook/[fixtureId]/page.tsx": {
+    "mtime": 1787768143.4545476,
+    "ast_hash": "11b707661a4d7172061b3323edf1cc42",
+    "semantic_hash": ""
+  },
+  "src/components/sports/score-pad.tsx": {
+    "mtime": 1787768086.382702,
+    "ast_hash": "50374c933d1e00065afae36c9e4e0bea",
+    "semantic_hash": ""
+  },
+  "src/components/sports/scorecard.tsx": {
+    "mtime": 1787768086.3706126,
+    "ast_hash": "0c1102457564f744e20093b3a351f84d",
+    "semantic_hash": ""
+  },
+  "src/lib/cricket.ts": {
+    "mtime": 1787768605.0398843,
+    "ast_hash": "595ac33e7655495c8888fc5b6d53b08f",
+    "semantic_hash": ""
+  },
+  "src/lib/scorebook.ts": {
+    "mtime": 1787767988.1966777,
+    "ast_hash": "27c4bbc4d40632ed2fa98925a120920a",
+    "semantic_hash": ""
+  },
+  "src/types/cricket.ts": {
+    "mtime": 1787768023.716863,
+    "ast_hash": "73352d7f144e7a40ffec9705608e842c",
+    "semantic_hash": ""
+  },
+  "public/High Res - Badge .pdf": {
+    "mtime": 1787819252.8037527,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   }
 }
